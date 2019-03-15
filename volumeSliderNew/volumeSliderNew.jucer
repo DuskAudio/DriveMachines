@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="xpku0s" name="HardClipperV1" projectType="audioplug" jucerVersion="5.4.3"
+              companyName="Dusk Audio" pluginFormats="buildVST3" pluginAAXCategory="64"
+              pluginVST3Category="Distortion,EQ,Filter,Fx,Stereo">
+  <MAINGROUP id="vTRmKI" name="HardClipperV1">
+    <GROUP id="{AB0DEA92-29ED-12AB-A82B-29589F45B214}" name="Source">
+      <FILE id="XyZ6Ko" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="J4Cwkm" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="mCeECx" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="kMCCv0" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2017 targetFolder="Builds/VisualStudio2017" vstLegacyFolder="..\..\..\SDKs\VST2_SDK\public.sdk\source\vst2.x"
+            aaxFolder="..\..\..\SDKs\AAX_SDK_2p3p1\AAX_SDK_2p3p1">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" enablePluginBinaryCopyStep="1" vst3BinaryLocation="C:\Program Files\Common Files\VST3\1--Meus Plugins--"
+                       targetName="HardClipper"/>
+        <CONFIGURATION isDebug="0" name="Release" enablePluginBinaryCopyStep="1" vst3BinaryLocation="C:\Program Files\Common Files\VST3\1--Meus Plugins--"
+                       targetName="HardClipper"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="ff_meters" path="../../../Algoritmos Varios"/>
+        <MODULEPATH id="juce_dsp" path="../../../Frameworks/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="ff_meters" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <WINDOWS buildEnabled="0"/>
+  </LIVE_SETTINGS>
+  <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+</JUCERPROJECT>
