@@ -92,6 +92,23 @@ VolumeSliderNewAudioProcessorEditor::VolumeSliderNewAudioProcessorEditor(VolumeS
 	drivesMenu.addItem("Smoother"    , 3);
 	addAndMakeVisible(&drivesMenu);
 
+	//ff_audio Meter - Daniel JUCE discord
+	{
+		lnf = new FFAU::LevelMeterLookAndFeel();
+		// adjust the colours to how you like them
+		lnf->setColour(FFAU::LevelMeter::lmMeterBackgroundColour, juce::Colours::black);
+		lnf->setColour(FFAU::LevelMeter::lmBackgroundColour, juce::Colours::black);
+		lnf->setColour(FFAU::LevelMeter::lmOutlineColour, juce::Colours::orange);
+		lnf->setColour(FFAU::LevelMeter::lmTicksColour, juce::Colours::white);
+		lnf->setColour(FFAU::LevelMeter::lmTextColour, juce::Colours::orange);
+		lnf->setColour(FFAU::LevelMeter::lmMeterGradientLowColour, juce::Colours::orange);
+
+		meter = new FFAU::LevelMeter(FFAU::LevelMeter::Horizontal); // See FFAU::LevelMeter::MeterFlags for options
+		meter->setLookAndFeel(lnf);
+		meter->setMeterSource(processor.getMeterSource());
+		meter->setBounds(25, 280, 380, 120);
+		addAndMakeVisible(meter);
+	}
 
 }
 
@@ -134,23 +151,7 @@ void VolumeSliderNewAudioProcessorEditor::resized()
 
 	drivesMenu.setBounds(175, 190, 80, 20);
 
-	//ff_audio Meter - Daniel JUCE discord
-	{
-		lnf = new FFAU::LevelMeterLookAndFeel();
-		// adjust the colours to how you like them
-		lnf->setColour(FFAU::LevelMeter::lmMeterBackgroundColour, juce::Colours::black);
-		lnf->setColour(FFAU::LevelMeter::lmBackgroundColour, juce::Colours::black);
-		lnf->setColour(FFAU::LevelMeter::lmOutlineColour, juce::Colours::orange);
-		lnf->setColour(FFAU::LevelMeter::lmTicksColour, juce::Colours::white);
-		lnf->setColour(FFAU::LevelMeter::lmTextColour, juce::Colours::orange);
-		lnf->setColour(FFAU::LevelMeter::lmMeterGradientLowColour, juce::Colours::orange);
-
-		meter = new FFAU::LevelMeter(FFAU::LevelMeter::Horizontal); // See FFAU::LevelMeter::MeterFlags for options
-		meter->setLookAndFeel(lnf);
-		meter->setMeterSource(processor.getMeterSource());
-		meter->setBounds(25, 280, 380, 120);
-		addAndMakeVisible(meter);
-	}
+	
 
 }
 
