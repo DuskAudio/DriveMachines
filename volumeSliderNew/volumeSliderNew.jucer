@@ -38,8 +38,8 @@
         <MODULEPATH id="juce_gui_basics" path="../../../Frameworks/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../Frameworks/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="ff_meters" path="../../../Algoritmos Varios"/>
         <MODULEPATH id="juce_dsp" path="../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="ff_meters" path="../../../../Algoritmos Varios"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>

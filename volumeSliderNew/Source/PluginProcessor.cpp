@@ -204,7 +204,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 
 		auto driveMenu = treeState.getRawParameterValue(CMB_ID);
 
-		//HardClip
+		//HardClip - Check this
 		if (*driveMenu == 0)
 		{
 			auto channelDrive1 = buffer.getWritePointer(samples);
@@ -223,7 +223,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 				}
 			}
 		}
-		//SoftClip
+		//SoftClip - Check This
 		else if (*driveMenu == 1)
 		{
 			auto channelDrive2 = buffer.getWritePointer(samples);
@@ -241,7 +241,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 				}
 			}
 		}
-		//Smooth
+		//Smooth - Great For now
 		else if (*driveMenu == 2)
 		{
 			auto channelDrive3 = buffer.getWritePointer(samples);
