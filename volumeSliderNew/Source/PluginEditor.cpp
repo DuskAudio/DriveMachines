@@ -23,10 +23,7 @@ VolumeSliderNewAudioProcessorEditor::VolumeSliderNewAudioProcessorEditor(VolumeS
 	saturationValue = std::make_unique<AudioProcessorValueTreeState::SliderAttachment>(processor.treeState, SAT_ID, saturationGain);
 	drivesMenuValue = std::make_unique<AudioProcessorValueTreeState::ComboBoxAttachment>(processor.treeState,CMB_ID ,drivesMenu );
 
-	setSize(430, 430);
-
 	
-
 
 	//Volume Slider
 	volumeSlider.setSliderStyle(Slider::SliderStyle::RotaryHorizontalVerticalDrag);
@@ -106,10 +103,11 @@ VolumeSliderNewAudioProcessorEditor::VolumeSliderNewAudioProcessorEditor(VolumeS
 		meter = new FFAU::LevelMeter(FFAU::LevelMeter::Horizontal); // See FFAU::LevelMeter::MeterFlags for options
 		meter->setLookAndFeel(lnf);
 		meter->setMeterSource(processor.getMeterSource());
-		meter->setBounds(25, 280, 380, 120);
+		
 		addAndMakeVisible(meter);
 	}
 
+	setSize(430, 430);
 }
 
 VolumeSliderNewAudioProcessorEditor::~VolumeSliderNewAudioProcessorEditor()
@@ -151,7 +149,7 @@ void VolumeSliderNewAudioProcessorEditor::resized()
 
 	drivesMenu.setBounds(175, 190, 80, 20);
 
-	
+	meter->setBounds(25, 280, 380, 120);
 
 }
 
