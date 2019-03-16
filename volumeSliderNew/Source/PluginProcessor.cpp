@@ -45,7 +45,7 @@ AudioProcessorValueTreeState::ParameterLayout VolumeSliderNewAudioProcessor::cre
 	auto polarityParam = std::make_unique<AudioParameterBool>(POLARITY_ID, POLARITY_NAME, true);
 	auto highPassParam = std::make_unique<AudioParameterFloat>(HPF_ID, HPF_NAME, 0.0f, 500.0f, 0.0f);
 	auto saturationParam = std::make_unique<AudioParameterFloat>(SAT_ID, SAT_NAME, 0.0f, 100.0f, 0.0f);
-	auto comboBoxParam = std::make_unique<AudioParameterChoice>(CMB_ID, CMB_NAME, StringArray("Hard Clipper", "Soft Clipper","Smooth"), 0);
+	auto comboBoxParam = std::make_unique<AudioParameterChoice>(CMB_ID, CMB_NAME, StringArray("Hard Clipper", "Soft Clipper", "Smooth"),0);
 
 
 	params.push_back(std::move(gainParam));
@@ -218,8 +218,8 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 				for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
 				{
 					float inputSample = channelDrive1[sample];
-					float inputSample1 = 1.5 * inputSample - 0.5 * pow(inputSample, 3);
-					channelDrive1[sample] = jlimit(-1.0f, 1.0f, Decibels::decibelsToGain(*saturation1Value)*inputSample1);
+					float inputSample1 = 1.5 * inputSample - 0.5 * (pow(inputSample, 3));
+					channelDrive1[sample] = jlimit(-1.0f, 1.0f, (*saturation1Value)*inputSample1);
 				}
 			}
 		}
@@ -236,8 +236,9 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 			{
 				for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
 				{
-					float inputSample2 = channelDrive2[sample];
-					channelDrive2[sample] = jlimit(-1.0f, 1.0f, Decibels::decibelsToGain(*saturation2Value) * (inputSample2));
+					float inputSample2a = channelDrive2[sample];
+					float inputSample2b = inputSample2a - (1 / 3) * (pow(inputSample2a, 3));
+					channelDrive2[sample] = jlimit(-1.0f, 1.0f, *saturation2Value * inputSample2b);
 				}
 			}
 		}
@@ -255,7 +256,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 				for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
 				{
 					float inputSample3 = channelDrive3[sample];
-					channelDrive3[sample] = 2 / 3.14159265 * atan(inputSample3*(*saturation3Value));
+					channelDrive3[sample] = (2 / 3.14159265) * atan(inputSample3*(*saturation3Value));
 				}
 			}
 		}
