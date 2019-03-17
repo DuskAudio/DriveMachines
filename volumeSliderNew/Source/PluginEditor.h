@@ -34,6 +34,7 @@ private:
 	Label volumeLabel, highpassLabel,saturationLabel;
 	ToggleButton invertToggle;
 	ComboBox drivesMenu;
+	Image background;
 
 	ScopedPointer<FFAU::LevelMeter> meter;
 	ScopedPointer<FFAU::LevelMeterLookAndFeel> lnf;

@@ -4,6 +4,10 @@
               companyName="Dusk Audio" pluginFormats="buildVST3" pluginAAXCategory="64"
               pluginVST3Category="Distortion,EQ,Filter,Fx,Stereo">
   <MAINGROUP id="vTRmKI" name="HardClipperV1">
+    <GROUP id="{21D1E4AA-7094-CEA8-D851-6B4968FDFA03}" name="Images">
+      <FILE id="HDydTN" name="bg_duskSatur.png" compile="0" resource="1"
+            file="Images/bg_duskSatur.png"/>
+    </GROUP>
     <GROUP id="{AB0DEA92-29ED-12AB-A82B-29589F45B214}" name="Source">
       <FILE id="XyZ6Ko" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
@@ -37,7 +41,6 @@
         <MODULEPATH id="juce_graphics" path="../../../Frameworks/JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../../Frameworks/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../Frameworks/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../Frameworks/JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="../../../../Algoritmos Varios"/>
       </MODULEPATHS>
@@ -60,7 +63,6 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <LIVE_SETTINGS>
     <WINDOWS buildEnabled="0"/>
