@@ -45,7 +45,7 @@ AudioProcessorValueTreeState::ParameterLayout VolumeSliderNewAudioProcessor::cre
 	auto polarityParam = std::make_unique<AudioParameterBool>(POLARITY_ID, POLARITY_NAME, true);
 	auto highPassParam = std::make_unique<AudioParameterFloat>(HPF_ID, HPF_NAME, 0.0f, 500.0f, 0.0f);
 	auto saturationParam = std::make_unique<AudioParameterFloat>(SAT_ID, SAT_NAME, 0.0f, 100.0f, 0.0f);
-	auto comboBoxParam = std::make_unique<AudioParameterChoice>(CMB_ID, CMB_NAME, StringArray("Hard Clipper", "Soft Clipper", "Smooth"),0);
+	auto comboBoxParam = std::make_unique<AudioParameterChoice>(CMB_ID, CMB_NAME, StringArray("Hard Clipper", "Soft Clipper", "Smooth"),3);
 
 
 	params.push_back(std::move(gainParam));
@@ -127,6 +127,7 @@ void VolumeSliderNewAudioProcessor::prepareToPlay(double sampleRate, int samples
 
 	lastSampleRate = sampleRate;
 
+	//High Pass preparation
 	dsp::ProcessSpec hpf;
 	hpf.sampleRate = sampleRate;
 	hpf.maximumBlockSize = samplesPerBlock;
@@ -204,7 +205,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 
 		auto driveMenu = treeState.getRawParameterValue(CMB_ID);
 
-		//HardClip - Check this
+		//HardClip 
 		if (*driveMenu == 0)
 		{
 			auto channelDrive1 = buffer.getWritePointer(samples);
@@ -223,7 +224,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 				}
 			}
 		}
-		//SoftClip - Check This
+		//SoftClip 
 		else if (*driveMenu == 1)
 		{
 			auto channelDrive2 = buffer.getWritePointer(samples);
@@ -247,6 +248,7 @@ void VolumeSliderNewAudioProcessor::processBlock(AudioBuffer<float>& buffer, Mid
 		{
 			auto channelDrive3 = buffer.getWritePointer(samples);
 			auto saturation3Value = treeState.getRawParameterValue(SAT_ID);
+
 			if (*saturation3Value == 0)
 			{
 				channelDrive3[samples] = channelDrive3[samples];

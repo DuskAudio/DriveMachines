@@ -51,7 +51,7 @@ public:
 	//==============================================================================
 	FFAU::LevelMeter* clearMaxLevelDisplay()
 	{
-		const int channel = -1;
+		const int channel = 1;
 	}
 	//==============================================================================
 	void processBlock(AudioBuffer<float>& buffer, MidiBuffer&) override;
@@ -79,7 +79,7 @@ public:
 	void setStateInformation(const void* data, int sizeInBytes) override;
 	void updateFilter();
 
-
+	
 
 	//float rawGainVolume;
 	bool polarInvert;

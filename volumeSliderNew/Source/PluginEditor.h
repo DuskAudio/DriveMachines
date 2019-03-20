@@ -25,12 +25,12 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
-
+	
 private:
     
     VolumeSliderNewAudioProcessor& processor;
 
-	Slider volumeSlider,highPassfilter,saturationGain;
+	Slider volumeSlider,highPassSlider,saturationSlider;
 	Label volumeLabel, highpassLabel,saturationLabel;
 	ToggleButton invertToggle;
 	ComboBox drivesMenu;
