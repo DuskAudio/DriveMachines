@@ -127,7 +127,6 @@ VolumeSliderNewAudioProcessorEditor::~VolumeSliderNewAudioProcessorEditor()
 void VolumeSliderNewAudioProcessorEditor::paint(Graphics& g)
 {
 
-
 	//Background Image
 	g.drawImageAt(background, 0, 0);
 
@@ -162,7 +161,10 @@ void VolumeSliderNewAudioProcessorEditor::resized()
 	auto topRoundedSquare = r.removeFromTop(50).reduced(10);
 	auto midRoundedSquare = r.removeFromTop(220).reduced(10);
 	auto botRoundedSquare = r.removeFromTop(130).reduced(10);
-
+	
+	//Meter Area
+	auto meterArea = botRoundedSquare.removeFromLeft(botRoundedSquare.getWidth());
+	meter->setBounds(meterArea.reduced(10));
 	//creating the Sliders on the Mid Rectangle
 
 	auto volumeArea = midRoundedSquare.removeFromLeft(midRoundedSquare.getWidth()/3);
@@ -182,7 +184,7 @@ void VolumeSliderNewAudioProcessorEditor::resized()
 	auto comboBoxArea = topRoundedSquare.removeFromRight(topRoundedSquare.getCentreX());
 	drivesMenu.setBounds(comboBoxArea);
 
-	auto meterArea = botRoundedSquare.removeFromLeft(botRoundedSquare.getWidth());
-	meter->setBounds(meterArea);
+	
+	
 }
 
